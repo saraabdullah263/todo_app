@@ -5,6 +5,17 @@ class SettingTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Column(
+        children: [
+          Expanded(
+            child: Text(
+              'langauge',
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

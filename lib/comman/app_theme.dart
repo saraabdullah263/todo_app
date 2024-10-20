@@ -3,12 +3,11 @@ import 'package:todo_app/comman/app_colors.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
-    textTheme: const TextTheme(
-      titleLarge: TextStyle(
-        color: Colors.white,
-        fontWeight: FontWeight.w700
-      )
-    ),
+      textTheme: TextTheme(
+          titleLarge:
+              const TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+          titleSmall: TextStyle(
+              color: AppColors.bottonBarDark, fontWeight: FontWeight.w700)),
       appBarTheme: AppBarTheme(
           color: AppColors.primaryColor,
           foregroundColor: Colors.white,
@@ -30,12 +29,18 @@ class AppTheme {
           backgroundColor: AppColors.primaryColor,
           foregroundColor: Colors.white,
           shape: const CircleBorder(
-              side: BorderSide(color: Colors.white, width: 5))));
+              side: BorderSide(color: Colors.white, width: 5))),
+    );
 
   static ThemeData darkTheme = ThemeData(
+      textTheme: TextTheme(
+          titleLarge: TextStyle(
+              color: AppColors.pgDarkColor, fontWeight: FontWeight.w700),
+          titleSmall: const TextStyle(
+              color: Colors.white, fontWeight: FontWeight.w700)),
       appBarTheme: AppBarTheme(
           color: AppColors.primaryColor,
-          foregroundColor:AppColors.bottonBarDark,
+          foregroundColor: AppColors.bottonBarDark,
           centerTitle: false,
           elevation: 0),
       scaffoldBackgroundColor: AppColors.pgDarkColor,
