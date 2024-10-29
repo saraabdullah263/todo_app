@@ -21,6 +21,7 @@ class CustomTextfaild extends StatelessWidget {
       validator: validator,
       decoration: InputDecoration(
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+
           hintText: hintText,
           hintStyle: TextStyle(
               color: Colors.grey, fontWeight: FontWeight.normal, fontSize: 15)),

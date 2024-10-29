@@ -9,7 +9,7 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.symmetric(horizontal: 20,vertical: 5),
-      color: Colors.white ,
+      color: Theme.of(context).colorScheme.secondary,
       child: SizedBox(
         height: MediaQuery.of(context).size.height*.12,
         child: Center(
@@ -19,7 +19,7 @@ class CustomCard extends StatelessWidget {
             color:Theme.of(context).primaryColor ,
           ),
           title: Text(model.name,style: Theme.of(context).textTheme.titleMedium,),
-          subtitle: Text(model.details),
+          subtitle: Text(model.details,style: TextStyle(color: Theme.of(context).colorScheme.onPrimary),),
           trailing: Container(
             width: MediaQuery.of(context).size.width*.12,
             height: MediaQuery.of(context).size.height*.034,

@@ -3,6 +3,7 @@ import 'package:todo_app/comman/widget/custom_scaffold.dart';
 import 'package:todo_app/screens/widget/botton_sheet_form.dart';
 import 'package:todo_app/tabs/settings/setting_tab.dart';
 import 'package:todo_app/tabs/tasks/task_tab.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   static String routeName = "HomeScreen";
@@ -19,7 +20,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return CustomScaffold(
       appBar: AppBar(
-        title: const Text('TO DO App'),
+        title:  Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: Text(AppLocalizations.of(context)!.todolist),
+        ),
       ),
       body: listTab[currenttabindex],
       bottomNavigationBar: BottomAppBar(

@@ -15,8 +15,8 @@ class CustomScaffold extends StatelessWidget {
         Theme.of(context).primaryColor,
         Theme.of(context).scaffoldBackgroundColor
       ], stops: [
-        .2,
-        .3
+        .24,
+        .24
       ],
       begin: Alignment.topCenter,
       end: Alignment.bottomCenter)),
