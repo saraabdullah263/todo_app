@@ -11,7 +11,6 @@ class TaskProvider with ChangeNotifier{
   Future<void> getTasksByDate()async{
     try {
       List<TaskModel> allTasks = await FirebaseServices.getTasksByDate(DateTime(selectedDate.year,selectedDate.month,selectedDate.day));
-      print('success!');
       tasks = allTasks;
       notifyListeners();
     } catch (e) {

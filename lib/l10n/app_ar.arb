@@ -4,9 +4,11 @@
     "selsectdate":"اختيار الوقت",
     "language":"اللغة",
     "mode":"وضع النظام",
-    "light":"الوضع الفاتح",
-    "dark":"الوضع الداكن",
+    "lighttheme":"الوضع الفاتح",
+    "darktheme":"الوضع الداكن",
     "arabic":"عربي",
-    "english":"انجليزي"
+    "english":"انجليزي",
+    "taskname":"الاسم",
+    "taskdetails":"التفاصيل"
 
 }

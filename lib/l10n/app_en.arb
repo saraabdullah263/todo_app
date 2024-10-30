@@ -4,8 +4,10 @@
     "selsectdate":"select date",
     "language":"language",
     "mode":"Mode",
-    "light":"Light",
-    "dark":"Dark",
+    "lighttheme":"Light Theme",
+    "darktheme":"Dark Theme",
     "arabic":"Arabic",
-    "english":"English"
+    "english":"English",
+    "taskname":"Task Name",
+    "taskdetails":"Task Details"
 }

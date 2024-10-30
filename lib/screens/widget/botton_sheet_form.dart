@@ -46,7 +46,7 @@ class _BottonSheetFormState extends State<BottonSheetForm> {
                   height: 15,
                 ),
                 CustomTextfaild(
-                  hintText: 'Task Name',
+                  hintText: AppLocalizations.of(context)!.taskname,
                   controller: taskNameController,
                   validator: (name) {
                     if (name == null || name == '') {
@@ -60,7 +60,7 @@ class _BottonSheetFormState extends State<BottonSheetForm> {
                   height: 15,
                 ),
                 CustomTextfaild(
-                  hintText: 'Task details',
+                  hintText: AppLocalizations.of(context)!.taskdetails,
                   controller: taskdetailsController,
                   maxLines: 5,
                   validator: (details) {

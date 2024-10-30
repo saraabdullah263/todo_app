@@ -47,9 +47,9 @@ class _SettingTabState extends State<SettingTab> {
           style: Theme.of(context).textTheme.titleSmall!.copyWith(color: Theme.of(context).primaryColor),
           underline: Container(),
           value: provider.localeCode,
-          items: const [
-            DropdownMenuItem(value: 'ar',child: Text('عربي'),),
-            DropdownMenuItem(value: 'en',child: Text('English'),)
+          items:  [
+            DropdownMenuItem(value: 'ar',child: Text(AppLocalizations.of(context)!.arabic),),
+            DropdownMenuItem(value: 'en',child: Text(AppLocalizations.of(context)!.english),)
           ],
           onChanged: (value) =>{
             if(value !=null){provider.ChangeLanguage(value)}
@@ -77,9 +77,9 @@ class _SettingTabState extends State<SettingTab> {
           style: Theme.of(context).textTheme.titleSmall!.copyWith(color: Theme.of(context).primaryColor),
           underline: Container(),
            value: provider.themeMode == ThemeMode.dark ? 'dark' : 'light',
-          items: const [
-           DropdownMenuItem(value: 'light', child: Text('Light Theme')),
-            DropdownMenuItem(value: 'dark', child: Text('Dark Theme')),
+          items:  [
+           DropdownMenuItem(value: 'light', child: Text(AppLocalizations.of(context)!.lighttheme)),
+            DropdownMenuItem(value: 'dark', child: Text(AppLocalizations.of(context)!.darktheme)),
           ],
          onChanged: (value) {
             if (value != null) {
