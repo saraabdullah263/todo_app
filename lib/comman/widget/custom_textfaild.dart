@@ -16,14 +16,14 @@ class CustomTextfaild extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      style: TextStyle(fontSize: 20),
+      style: TextStyle(fontSize: 20,color: Theme.of(context).colorScheme.onPrimary),
       maxLines: maxLines,
       validator: validator,
       decoration: InputDecoration(
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
 
           hintText: hintText,
-          hintStyle: TextStyle(
+          hintStyle:const TextStyle(
               color: Colors.grey, fontWeight: FontWeight.normal, fontSize: 15)),
     );
   }
