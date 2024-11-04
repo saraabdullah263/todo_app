@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_app/comman/widget/custom_scaffold.dart';
+import 'package:todo_app/provider/task_provider.dart';
 import 'package:todo_app/screens/widget/botton_sheet_form.dart';
 import 'package:todo_app/tabs/settings/setting_tab.dart';
 import 'package:todo_app/tabs/tasks/task_tab.dart';
@@ -20,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return CustomScaffold(
       appBar: AppBar(
-        title:  Padding(
+        title: Padding(
           padding: const EdgeInsets.only(top: 20),
           child: Text(AppLocalizations.of(context)!.todolist),
         ),
@@ -45,16 +47,27 @@ class _HomeScreenState extends State<HomeScreen> {
             ]),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(
-          Icons.add,
-          size: 30,
-        ),
-        onPressed: () {
-          showModalBottomSheet(context: context, builder: (context) {
-            return BottonSheetForm();
-          },);
-        },
-      ),
+          backgroundColor: Provider.of<TaskProvider>(context)
+                  .selectedDate
+                  .isBefore(DateTime.now().subtract(const Duration(days: 1)))
+              ? Colors.grey
+              : null,
+          child: const Icon(
+            Icons.add,
+            size: 30,
+          ),
+          onPressed: Provider.of<TaskProvider>(context)
+                  .selectedDate
+                  .isBefore(DateTime.now().subtract(const Duration(days: 1)))
+              ? null
+              : () {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return const BottonSheetForm();
+                    },
+                  );
+                }),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }

@@ -28,12 +28,12 @@ class _BottonSheetFormState extends State<BottonSheetForm> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<TaskProvider>(context);
-    var theme_provide = Provider.of<ThemeProvide>(context);
+    var themeProvider = Provider.of<ThemeProvide>(context);
     return SingleChildScrollView(
       child: Container(
         color: Theme.of(context).colorScheme.secondary,
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding:  EdgeInsets.only(top:20.0,left: 20,bottom:MediaQuery.of(context).viewInsets.bottom ,right: 20),
           child: Form(
             key: formKay,
             child: Column(
@@ -95,7 +95,7 @@ class _BottonSheetFormState extends State<BottonSheetForm> {
                         lastDate: DateTime.now().add(const Duration(days: 200)),
                         builder: (context, child) {
                           return Theme(
-                              data: theme_provide.themeMode == ThemeMode.light
+                              data: themeProvider.themeMode == ThemeMode.light
                                   ? ThemeData.light().copyWith(
                                       colorScheme: ColorScheme.light(
                                       primary: Theme.of(context).colorScheme.primary,

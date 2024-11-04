@@ -29,7 +29,9 @@ class AppTheme {
           titleMedium: TextStyle(
               color: AppColors.primaryColor,
               fontSize: 18,
-              fontWeight: FontWeight.w700)),
+              fontWeight: FontWeight.w700),
+          bodySmall: const TextStyle(
+              color: Colors.green, fontSize: 18, fontWeight: FontWeight.w700)),
       appBarTheme: const AppBarTheme(
           color: Colors.transparent,
           foregroundColor: Colors.white,
@@ -52,12 +54,15 @@ class AppTheme {
           shape: const CircleBorder(
               side: BorderSide(color: Colors.white, width: 5))),
       inputDecorationTheme: const InputDecorationTheme(
-          focusedBorder:
-              OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)),borderSide: BorderSide(color: Colors.black)),
-          enabledBorder:
-              OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)),borderSide: BorderSide(color: Colors.black)),
-          disabledBorder:
-              OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)),borderSide: BorderSide(color: Colors.black))));
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderSide: BorderSide(color: Colors.black)),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderSide: BorderSide(color: Colors.black)),
+          disabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderSide: BorderSide(color: Colors.black))));
 
   static ThemeData darkTheme = ThemeData(
       canvasColor: Colors.black,
@@ -103,12 +108,14 @@ class AppTheme {
           foregroundColor: Colors.white,
           shape: CircleBorder(
               side: BorderSide(color: AppColors.bottonBarDark, width: 5))),
- inputDecorationTheme: const InputDecorationTheme(
-          focusedBorder:
-              OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)),borderSide: BorderSide(color: Colors.white)),
-          enabledBorder:
-              OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)),borderSide: BorderSide(color: Colors.white)),
-          disabledBorder:
-              OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(10)),borderSide: BorderSide(color: Colors.white))));
+      inputDecorationTheme: const InputDecorationTheme(
+          focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderSide: BorderSide(color: Colors.white)),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderSide: BorderSide(color: Colors.white)),
+          disabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+              borderSide: BorderSide(color: Colors.white))));
 }
-
