@@ -1,7 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_app/auth/view/login_Screen.dart';
+import 'package:todo_app/auth/view/signup_Screen.dart';
 import 'package:todo_app/comman/app_theme.dart';
 import 'package:todo_app/firebase_options.dart';
 import 'package:todo_app/provider/task_provider.dart';
@@ -48,8 +49,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         HomeScreen.routeName: (_) => const HomeScreen(),
+       SignupScreen.routeName: (_) => const SignupScreen(),
+       LoginScreen.routeName:(_)=>const LoginScreen()
+
       },
-      initialRoute: HomeScreen.routeName,
+      initialRoute:  SignupScreen.routeName
     );
   }
 }
