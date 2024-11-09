@@ -87,4 +87,31 @@ class TaskProvider with ChangeNotifier {
           fontSize: 16.0);
     }
   }
+  updateTask(String id,TaskModel task) async{
+     try {
+      await FirebaseServices.updateTask(id, task).then((value) {
+        Fluttertoast.showToast(
+            msg: 'Task updated',
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.BOTTOM,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.green,
+            textColor: Colors.white,
+            fontSize: 16.0);
+        notifyListeners();
+        getTasksByDate();
+      });
+    } catch (e) {
+      Fluttertoast.showToast(
+          msg: e.toString(),
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
+    }
+  
+
+  }
 }

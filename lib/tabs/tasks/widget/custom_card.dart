@@ -3,6 +3,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/comman/app_colors.dart';
 import 'package:todo_app/provider/task_provider.dart';
+import 'package:todo_app/screens/widget/edit%20_task.dart';
 import 'package:todo_app/tabs/tasks/model/task_model.dart';
 
 class CustomCard extends StatefulWidget {
@@ -19,7 +20,7 @@ class _CustomCardState extends State<CustomCard> {
   
   @override
   Widget build(BuildContext context) {
-    //var provider = Provider.of<TaskProvider>(context);
+    var provider = Provider.of<TaskProvider>(context);
     return Card(
         margin:const EdgeInsets.symmetric(horizontal: 20,vertical: 5),
         color: Theme.of(context).colorScheme.secondary,
@@ -41,6 +42,7 @@ class _CustomCardState extends State<CustomCard> {
       ),
       SlidableAction(
         onPressed:(context) {
+         Navigator.of(context).pushNamed(EditTask.routeName,arguments: TaskModel(name: widget.model.name, details: widget.model.details, date: widget.model.date));
         },
         backgroundColor: AppColors.primaryColor,
         foregroundColor: Colors.white,
