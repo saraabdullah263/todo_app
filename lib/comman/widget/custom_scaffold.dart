@@ -14,7 +14,7 @@ class CustomScaffold extends StatelessWidget {
           gradient: LinearGradient(colors: [
         Theme.of(context).primaryColor,
         Theme.of(context).scaffoldBackgroundColor
-      ], stops: [
+      ], stops:const [
         .24,
         .24
       ],

@@ -32,7 +32,7 @@ class _CustomTextformfaildState extends State<CustomTextformfaild> {
       child: TextFormField(
         controller: widget.controller,
         validator: widget.validator,
-        style: TextStyle(color: Colors.black),
+        style:const TextStyle(color: Colors.black),
         keyboardType: widget.keyboardType,
         obscureText: widget.password && !showPassword,
         decoration: InputDecoration(

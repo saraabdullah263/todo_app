@@ -14,7 +14,7 @@ class ThemeProvide with ChangeNotifier {
     }
     notifyListeners(); 
   }
-  ChangeLanguage(String locale){
+  changeLanguage(String locale){
      localeCode=locale;
      notifyListeners();
   }

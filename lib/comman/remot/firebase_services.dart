@@ -59,10 +59,9 @@ class FirebaseServices {
   }
 
   static Future<UserDataModel?> login(String email, String password) async {
-    UserCredential userCredential = await FirebaseAuth.instance
+    await FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: password);
     FirebaseAuth.instance.currentUser!.uid;
-    print(' ====================> ${userCredential.user!.uid}');
     return getUser();
   }
 
@@ -72,7 +71,6 @@ class FirebaseServices {
         .createUserWithEmailAndPassword(
             email: userDataModel.email!, password: password);
     FirebaseAuth.instance.currentUser!.uid;
-    print(' ====================> ${userCredential.user?.uid}');
     userDataModel.id = userCredential.user?.uid;
     await createUser(userDataModel);
     return userDataModel;

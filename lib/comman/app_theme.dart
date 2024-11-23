@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:todo_app/comman/app_colors.dart';
 
 class AppTheme {
@@ -86,7 +85,10 @@ class AppTheme {
           titleLarge: TextStyle(
               color: AppColors.pgDarkColor, fontWeight: FontWeight.w700),
           titleSmall: const TextStyle(
-              color: Colors.white, fontWeight: FontWeight.w700)),
+              color: Colors.white, fontWeight: FontWeight.w700),
+               bodySmall: const TextStyle(
+              color: Colors.green, fontSize: 18, fontWeight: FontWeight.w700)
+              ),
       appBarTheme: AppBarTheme(
           color: AppColors.primaryColor,
           foregroundColor: AppColors.bottonBarDark,

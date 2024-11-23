@@ -108,19 +108,4 @@ class _CustomCardState extends State<CustomCard> {
     );
   }
 
-//   deleteButton(){
-
-//     setState(() {
-//       isButtonVisible=false;
-//     });
-//   }
-//    Widget buttonStyle() {
-//     return isButtonVisible
-//         ? IconButton(icon:const Icon(Icons.done),color:Colors.white,alignment: Alignment.center ,onPressed: (deleteButton),)
-//         : const Text(
-//             'Done!',
-//             style: TextStyle(fontSize: 20,color: Colors.green,fontWeight: FontWeight.w900),
-//           );
-
-//   }
 }

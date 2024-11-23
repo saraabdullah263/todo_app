@@ -44,7 +44,8 @@ class _EditTaskState extends State<EditTask> {
         body: Center(
           child: Container(
             decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(15)),
+                color: Theme.of(context).colorScheme.secondary
+                , borderRadius: BorderRadius.circular(15)),
             width: MediaQuery.of(context).size.width * .75,
             height: MediaQuery.of(context).size.height * .75,
             child: SingleChildScrollView(
@@ -59,7 +60,7 @@ class _EditTaskState extends State<EditTask> {
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
                       controller: titleController,
-                      style: const TextStyle(color: Colors.black),
+                      style:  TextStyle(color:Theme.of(context).colorScheme.onPrimary ),
                       decoration: const InputDecoration(
                         hintText: 'edit name',
                         hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
@@ -78,7 +79,7 @@ class _EditTaskState extends State<EditTask> {
                     padding: const EdgeInsets.all(8.0),
                     child: TextField(
                       controller: detailsController,
-                      style: const TextStyle(color: Colors.black),
+                      style:  TextStyle(color: Theme.of(context).colorScheme.onPrimary),
                       decoration: const InputDecoration(
                         hintText: 'editdetails',
                         hintStyle: TextStyle(color: Colors.grey, fontSize: 15),

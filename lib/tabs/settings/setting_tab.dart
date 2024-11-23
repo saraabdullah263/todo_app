@@ -58,7 +58,7 @@ class _SettingTabState extends State<SettingTab> {
                   )
                 ],
                 onChanged: (value) => {
-                  if (value != null) {provider.ChangeLanguage(value)}
+                  if (value != null) {provider.changeLanguage(value)}
                 },
               ),
             ),

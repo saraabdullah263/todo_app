@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTextfaild extends StatelessWidget {
-  CustomTextfaild(
+ const CustomTextfaild(
       {super.key,
       this.hintText,
       required this.controller,
