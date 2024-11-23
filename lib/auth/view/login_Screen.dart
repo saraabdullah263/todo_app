@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_app/auth/models/user_data_model.dart';
 import 'package:todo_app/auth/provider/auth_provider.dart';
 import 'package:todo_app/auth/view/signup_Screen.dart';
 import 'package:todo_app/auth/widget/custom_textformfaild.dart';
@@ -36,21 +37,24 @@ class _LoginScreenState extends State<LoginScreen> {
 
               const Center(
                   child: Text(
-                'TO DO APP',
-                style: TextStyle(
+                                  'TO DO APP',
+                                  style: TextStyle(
                     fontSize: 40,
                     fontWeight: FontWeight.w900,
                     fontFamily: 'Pacifico'),
-              )),
+                                )),
               const SizedBox(
                 height: 20,
               ),
 
               const Center(
-                  child: Text(
-                'Please enter your email address and enter your password',
-                style: TextStyle(fontSize: 15, color: Colors.grey),
-              )),
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: Text(
+                                    'Please enter your email address and enter your password',
+                                    style: TextStyle(fontSize: 15, color: Colors.grey),
+                                  ),
+                  )),
               const SizedBox(
                 height: 20,
               ),
@@ -101,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 },
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * .3,
+                height: MediaQuery.of(context).size.height * .28,
               ),
               TextButton(
                   onPressed: () {}, child: const Text('Forget password ?')),
@@ -112,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 40,
                 width: 150,
                 child: Provider.of<LocalAuthProvider>(context).loading
-                    ?const Center(child:  CircularProgressIndicator())
+                    ? const Center(child: CircularProgressIndicator())
                     : CustomElevatedbutton(
                         onPressed: () async {
                           if (formKey.currentState!.validate()) {
@@ -121,17 +125,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                 .login(emailControllar.text,
                                     passwordController.text)
                                 .then(
-                              (value) {
+                              (value)  {
+                                
                                 if (Provider.of<LocalAuthProvider>(context,
                                             listen: false)
                                         .userDataModel !=
                                     null) {
-                                  Provider.of<TaskProvider>(context,listen: false)
+                                  Provider.of<TaskProvider>(context,
+                                          listen: false)
                                       .getTasksByDate();
                                   Navigator.of(
                                     context,
-                                  ).popAndPushNamed(HomeScreen.routeName);
-                                }
+                                  ).pushReplacementNamed(HomeScreen.routeName);
+                                } 
                               },
                             );
                           }
@@ -154,26 +160,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: const Text(' Register'))
                 ],
               ),
-              //  const Row(
-              //     children: [
-              //       Expanded(child: Divider(indent: 5,endIndent: 5,color: Colors.grey,)),
-              //       Text('OR'),
-              //       Expanded(child: Divider(indent: 5,endIndent: 5,color: Colors.grey))
-              //     ],
-              //   ),
-              //   Row(
-              //     children: [
-              //       IconButton.filled(onPressed: () {
-
-              //       }, icon: Icon(Icons.facebook_outlined,color: Colors.white,)),
-              //        IconButton.filled(onPressed: () {
-
-              //       }, icon: Icon(Icons.laptop_chromebook_outlined,color: Colors.white,))
-              //     ],
-              //   )
-              const SizedBox(
-                height: 20,
-              )
             ],
           ),
         ),

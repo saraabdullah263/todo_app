@@ -134,13 +134,8 @@ class _SignupScreenState extends State<SignupScreen> {
               SizedBox(
                 height: 40,
                 width: 150,
-                child: Provider.of<LocalAuthProvider>(context)
-                        .loading
-                    ? const Center(
-                      child:  CircularProgressIndicator(
-                          strokeWidth: 05,
-                        ),
-                    )
+                child: Provider.of<LocalAuthProvider>(context).loading
+                    ? const Center(child: CircularProgressIndicator())
                     : CustomElevatedbutton(
                         onPressed: () async {
                           if (formKey1.currentState!.validate()) {
@@ -148,12 +143,13 @@ class _SignupScreenState extends State<SignupScreen> {
                                     listen: false)
                                 .register(
                                     UserDataModel(
-                                      name: nameControllar.text,
-                                      email: emailControllar.text,
-                                    ),
+                                        name: nameControllar.text,
+                                        email: emailControllar.text),
                                     passwordController.text)
                                 .then(
-                              (value) {
+                              (value) async {
+                                await Future.delayed(
+                                    const Duration(seconds: 1));
                                 if (Provider.of<LocalAuthProvider>(context,
                                             listen: false)
                                         .userDataModel !=
@@ -161,8 +157,14 @@ class _SignupScreenState extends State<SignupScreen> {
                                   Provider.of<TaskProvider>(context,
                                           listen: false)
                                       .getTasksByDate();
-                                  Navigator.of(context).pushReplacementNamed(
-                                      HomeScreen.routeName);
+                                  Navigator.of(context)
+                                      .popAndPushNamed(HomeScreen.routeName);
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                        content: Text(
+                                            'Login failed, please try again')),
+                                  );
                                 }
                               },
                             );

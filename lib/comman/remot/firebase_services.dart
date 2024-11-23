@@ -29,14 +29,10 @@ class FirebaseServices {
   //   CollectionReference<TaskModel> tasksCollection = getTaskCollection();
   //   return tasksCollection.doc(id).update(task);
   // }
-  static Future<void> updateTask(String id,TaskModel task) async {
-  CollectionReference<TaskModel> tasksCollection = getTaskCollection();
-  if (id!=null) {
-    await tasksCollection.doc(id).update(task.toJson());
-  } else {
-    throw Exception("Task ID cannot be null");
+ static Future<void> updateTasks(String id, Map<Object, Object?> data) {
+  CollectionReference<TaskModel>tasksCollection=getTaskCollection();
+    return tasksCollection.doc(id).update(data);
   }
-}
 
 // static  Future<List<TaskModel>> getTasks() async {
 //   try { CollectionReference<TaskModel> tasksCollection = getTaskCollection();
@@ -80,6 +76,15 @@ class FirebaseServices {
     userDataModel.id = userCredential.user?.uid;
     await createUser(userDataModel);
     return userDataModel;
+  }
+  static Future<void>editIsdone(String taskId,bool isDone){
+   return getTaskCollection().doc(taskId).update({'isDone': isDone} ,);
+  }
+  static Future<void>editTask(String taskId,TaskModel taskModel){
+    return  getTaskCollection().doc(taskId).update(
+      {'name': taskModel.name,
+      'details': taskModel.details,
+      'date': Timestamp.fromDate(taskModel.date),});
   }
 
   static CollectionReference<UserDataModel> getUserCollection() =>

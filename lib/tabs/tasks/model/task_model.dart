@@ -3,23 +3,23 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class TaskModel {
   String name;
   String details;
-  bool? isDone;
+  bool isDone;
   DateTime date;
   String id;
   TaskModel({
     required this.name,
     required this.details,
     required this.date,
-    this.isDone,
+    this.isDone=false,
     this.id = '',
   });
   TaskModel.fromJson(Map<String, dynamic> json)
       : this(
-          name: json['name'],
+          name: json['name'] ?? 'Unnamed Task',
           details: json['details'] ??'' ,
-          isDone: json['isDone'],
-          date: (json['date'] as Timestamp).toDate(),
-          id: json['id'],
+          isDone: json['isDone'] ,
+          date:(json['date'] as Timestamp?)?.toDate() ?? DateTime.now(),
+          id: json['id'] ?? '',
         );
         
 
@@ -28,7 +28,7 @@ class TaskModel {
       'name': name,
       'details': details,
       'date': Timestamp.fromDate(date),
-      'isDone': isDone,
+      'isDone': isDone ,
       'id': id
     };
   }

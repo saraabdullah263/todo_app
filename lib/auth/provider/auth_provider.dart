@@ -14,6 +14,7 @@ class LocalAuthProvider with ChangeNotifier {
     try {
       userDataModel = await FirebaseServices.login(email, password);
       notifyListeners();
+      loading=false;
     } catch (e) {
       loading=false;
       notifyListeners();

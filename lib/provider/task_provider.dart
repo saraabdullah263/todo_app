@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:todo_app/comman/remot/firebase_services.dart';
+import 'package:todo_app/screens/widget/edit%20_task.dart';
 import 'package:todo_app/tabs/tasks/model/task_model.dart';
 
 class TaskProvider with ChangeNotifier {
@@ -87,11 +88,48 @@ class TaskProvider with ChangeNotifier {
           fontSize: 16.0);
     }
   }
-  updateTask(String id,TaskModel task) async{
-     try {
-      await FirebaseServices.updateTask(id, task).then((value) {
+
+  editIsDone(String taskId, bool isDone) async {
+    try {
+      await FirebaseServices.editIsdone(taskId, isDone).then((value) {
+        isDone == true
+            ? Fluttertoast.showToast(
+                msg: 'Task is done',
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIosWeb: 1,
+                backgroundColor: Colors.green,
+                textColor: Colors.white,
+                fontSize: 16.0)
+            : Fluttertoast.showToast(
+                msg: 'Task not complete',
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                timeInSecForIosWeb: 1,
+                backgroundColor: Colors.grey,
+                textColor: Colors.white,
+                fontSize: 16.0);
+
+        notifyListeners();
+        getTasksByDate();
+      });
+    } catch (e) {
+      Fluttertoast.showToast(
+          msg: e.toString(),
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0);
+    }
+  }
+
+  editTask(String taskId, TaskModel taskModel) async {
+    try {
+      await FirebaseServices.editTask(taskId, taskModel).then((value) {
         Fluttertoast.showToast(
-            msg: 'Task updated',
+            msg: 'Task updated successfully',
             toastLength: Toast.LENGTH_SHORT,
             gravity: ToastGravity.BOTTOM,
             timeInSecForIosWeb: 1,
@@ -111,7 +149,5 @@ class TaskProvider with ChangeNotifier {
           textColor: Colors.white,
           fontSize: 16.0);
     }
-  
-
   }
 }
