@@ -5,7 +5,6 @@ import 'package:todo_app/auth/view/login_Screen.dart';
 import 'package:todo_app/comman/app_colors.dart';
 import 'package:todo_app/provider/task_provider.dart';
 import 'package:todo_app/provider/theme_provide.dart';
-import 'package:todo_app/tabs/tasks/model/task_model.dart';
 
 class SettingTab extends StatefulWidget {
   const SettingTab({super.key});

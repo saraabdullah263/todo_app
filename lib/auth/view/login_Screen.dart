@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todo_app/auth/models/user_data_model.dart';
 import 'package:todo_app/auth/provider/auth_provider.dart';
 import 'package:todo_app/auth/view/signup_Screen.dart';
 import 'package:todo_app/auth/widget/custom_textformfaild.dart';

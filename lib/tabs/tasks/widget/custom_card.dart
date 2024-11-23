@@ -1,10 +1,7 @@
-import 'package:date_format/date_format.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/comman/app_colors.dart';
-import 'package:todo_app/comman/remot/firebase_services.dart';
 import 'package:todo_app/provider/task_provider.dart';
 import 'package:todo_app/screens/widget/edit%20_task.dart';
 import 'package:todo_app/tabs/tasks/model/task_model.dart';

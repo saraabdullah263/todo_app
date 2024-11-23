@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:todo_app/comman/remot/firebase_services.dart';
-import 'package:todo_app/screens/widget/edit%20_task.dart';
 import 'package:todo_app/tabs/tasks/model/task_model.dart';
 
 class TaskProvider with ChangeNotifier {
